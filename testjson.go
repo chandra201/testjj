@@ -40,7 +40,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 // Transaction makes payment of X units from A to B
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	var name   // Entities
-	var nameval string // Asset holdings
+	var nameval  // Asset holdings
 	var err error
 
 	if len(args) != 2 {
