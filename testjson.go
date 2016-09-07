@@ -35,7 +35,7 @@ type SimpleChaincode struct {
 
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 
-	return nil, nil
+	return nil
 }
 
 // Transaction makes payment of X units from A to B
