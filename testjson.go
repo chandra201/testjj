@@ -39,22 +39,19 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 
 // Transaction makes payment of X units from A to B
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-var name, sal string    // Entities
-	var nameval, salval string // Asset holdings
+	var name string    // Entities
+	var nameval string // Asset holdings
 	var err error
 
-	if len(args) != 4 {
-		return nil, errors.New("Incorrect number of arguments. Expecting 4")
+	if len(args) != 2 {
+		return nil, errors.New("Incorrect number of arguments. Expecting 2")
 	}
 
 	// Initialize the chaincode
 	name = args[0]
 	nameval = args[1]
-	
-	sal = args[2]
-	salval = args[3]
-	
-	fmt.Printf("nameval = %d, salval = %d\n", nameval, salval)
+		
+	fmt.Printf("nameval = %d\n", nameval)
 
 	// Write the state to the ledger
 	err = stub.PutState(name, []byte(nameval))
@@ -62,11 +59,7 @@ var name, sal string    // Entities
 		return nil, err
 	}
 
-	err = stub.PutState(sal, []byte(salval))
-	if err != nil {
-		return nil, err
-	}
-
+	
 	return nil, nil
 
 	
