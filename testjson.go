@@ -33,7 +33,7 @@ type SimpleChaincode struct {
    
 }
 
-func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string) ([]byte, error) {
 	return nil, nil
 }
 
